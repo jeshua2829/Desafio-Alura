@@ -51,4 +51,5 @@ function sortearAmigo() {
 function limpiarLista() {
     listaAmigos = []; // Vaciar la lista
     mostrarLista(); // Actualizar lista en pantalla
+    document.querySelector("#listaAmigos").innerHTML = "";
 }
