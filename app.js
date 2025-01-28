@@ -4,7 +4,7 @@ let listaAmigos = [];
 function agregarAmigo() {
     let elemento = document.querySelector("#amigo").value;
     if (elemento == "") {
-        alert("Ingresa un Nombre por favor");
+        alert("Ingrese un Nombre por favor");
     }else{
         listaAmigos.push(elemento)
         limpiarCaja();
@@ -24,4 +24,26 @@ function mostrarLista() {
 }
 function limpiarCaja() {
     document.querySelector("#amigo").value = "";
+}
+
+function sortearAmigo() {
+    let listaGanadora= document.querySelector("#resultado");
+    listaGanadora.innerHTML = "";
+    if (listaAmigos.length === 0) {
+        alert("¡No hay amigos en la lista para sortear!");
+        return;
+    }else{
+        let indiceAleatorio = Math.floor(Math.random() * listaAmigos.length); // Índice aleatorio
+        let ganador = listaAmigos[indiceAleatorio];
+        console.log(ganador);
+        let resultado = document.createElement("li")
+        resultado.innerHTML = `El Ganador es: ${ganador} 🎉`
+        listaGanadora.appendChild(resultado);
+        limpiarLista();
+    }
+}
+
+function limpiarLista() {
+    listaAmigos = []; // Vaciar la lista
+    mostrarLista(); // Actualizar lista en pantalla
 }
